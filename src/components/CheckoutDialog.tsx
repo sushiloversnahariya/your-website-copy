@@ -76,7 +76,7 @@ export function CheckoutDialog({
   const [city, setCity] = useState<CityId>("nahariya");
   const [payment, setPayment] = useState<string>("cash");
   const [date, setDate] = useState(() => todayISO());
-  const [slot, setSlot] = useState(TIME_SLOTS[0]);
+  const [slot, setSlot] = useState(TIME_SLOTS[0] as string);
   const [errors, setErrors] = useState<Record<string, boolean>>({});
 
   const today = todayISO();
