@@ -871,6 +871,42 @@ export const TRANSLATIONS: Record<string, Record<Lang, string>> = {
     "uk": "Давно замовляю суші тільки тут. Сервіс, професіоналізм, і звісно ж смачні свіжі роли не залишать байдужим! Роблять доставку в Крайот завжди точно у визначений час, без запізнень. Чесно заслужені ⭐️⭐️⭐️⭐️⭐️",
     "he": "כבר הרבה זמן מזמינה סושי רק כאן. השירות, המקצועיות, וכמובן הרולים הטריים והטעימים לא ישאירו אף אחד אדיש! עושים משלוח לקריות תמיד בדיוק בזמן שנקבע, בלי איחורים. ⭐️⭐️⭐️⭐️⭐️ מגיעות בצדק",
     "en": "I've been ordering sushi only here for a long time. The service, professionalism, and of course the tasty fresh rolls won't leave you indifferent! They always deliver to the Krayot area exactly on the agreed time, no delays. Honestly earned ⭐️⭐️⭐️⭐️⭐️"
+  },
+  "accessibility_title": {
+    "ru": "Заявление о доступности",
+    "uk": "Заява про доступність",
+    "he": "הצהרת נגישות",
+    "en": "Accessibility statement"
+  },
+  "accessibility_intro": {
+    "ru": "Мы в Sushi Lovers стремимся сделать сайт удобным для всех гостей, включая людей с ограниченными возможностями.",
+    "uk": "Ми в Sushi Lovers прагнемо зробити сайт зручним для всіх гостей, включно з людьми з обмеженими можливостями.",
+    "he": "ב-Sushi Lovers אנו שואפים להנגיש את האתר לכל הלקוחות, כולל אנשים עם מוגבלות.",
+    "en": "At Sushi Lovers we aim to make our website usable for every guest, including people with disabilities."
+  },
+  "accessibility_measures": {
+    "ru": "Сайт использует семантическую разметку, контрастные цвета, навигацию с клавиатуры, читаемые размеры шрифтов, альтернативные описания изображений и адаптивную вёрстку для мобильных устройств.",
+    "uk": "Сайт використовує семантичну розмітку, контрастні кольори, навігацію з клавіатури, читабельні розміри шрифтів, альтернативні описи зображень та адаптивну верстку.",
+    "he": "האתר עושה שימוש בתגיות סמנטיות, ניגודיות צבעים, ניווט במקלדת, גדלי גופן קריאים, תיאורים חלופיים לתמונות ועיצוב מותאם למובייל.",
+    "en": "The site uses semantic markup, high-contrast colors, keyboard navigation, readable font sizes, alternative image descriptions and a responsive mobile layout."
+  },
+  "accessibility_limits": {
+    "ru": "Несмотря на наши усилия, отдельные элементы могут быть не полностью доступны. Мы продолжаем улучшать сайт и исправлять найденные проблемы.",
+    "uk": "Незважаючи на наші намагання, окремі елементи можуть бути не повністю доступними. Ми продовжуємо вдосконалювати сайт та виправляти виявлені проблеми.",
+    "he": "על אף מאמצינו, ייתכן שחלק מהרכיבים אינם נגישים במלואם. אנו ממשיכים לשפר את האתר ולתקן תקלות שמתגלות.",
+    "en": "Despite our efforts, some elements may not be fully accessible. We keep improving the site and fixing issues we find."
+  },
+  "accessibility_contact": {
+    "ru": "Нашли проблему с доступностью? Свяжитесь с нами:",
+    "uk": "Знайшли проблему з доступністю? Зв'яжіться з нами:",
+    "he": "נתקלתם בבעיית נגישות? צרו איתנו קשר:",
+    "en": "Found an accessibility problem? Contact us:"
+  },
+  "back_home": {
+    "ru": "На главную",
+    "uk": "На головну",
+    "he": "חזרה לדף הבית",
+    "en": "Back home"
   }
 } as const;
 
