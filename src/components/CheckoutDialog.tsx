@@ -85,7 +85,7 @@ export function CheckoutDialog({
   const phoneInvalid = phone.trim().length > 0 && !normalizePhone(phone);
 
   useEffect(() => {
-    if (!slots.includes(slot)) setSlot(slots[0]);
+    if (!slots.includes(slot)) setSlot(slots[0] ?? "");
   }, [slots, slot]);
 
   useEffect(() => {
@@ -302,7 +302,7 @@ export function CheckoutDialog({
                 id="name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className={cn("mt-1", errors.name && "border-destructive")}
+                className={cn("mt-1", errors['name'] && "border-destructive")}
               />
             </div>
             <div>
@@ -312,7 +312,7 @@ export function CheckoutDialog({
                 inputMode="tel"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
-                className={cn("mt-1", (errors.phone || phoneInvalid) && "border-destructive")}
+                className={cn("mt-1", (errors['phone'] || phoneInvalid) && "border-destructive")}
               />
               <p className="mt-1 text-xs text-muted-foreground">{t("phone_hint")}</p>
               {phoneInvalid && <p className="text-xs text-destructive">{t("phone_invalid")}</p>}
@@ -324,7 +324,7 @@ export function CheckoutDialog({
                   id="address"
                   value={address}
                   onChange={(e) => setAddress(e.target.value)}
-                  className={cn("mt-1", errors.address && "border-destructive")}
+                  className={cn("mt-1", errors['address'] && "border-destructive")}
                 />
               </div>
             )}

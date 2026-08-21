@@ -36,11 +36,13 @@ export function GallerySection() {
           onMouseLeave={() => setPaused(false)}
           onTouchStart={(e) => {
             setPaused(true);
-            touchX.current = e.touches[0].clientX;
+            touchX.current = e.touches[0]?.clientX ?? null;
           }}
           onTouchEnd={(e) => {
             if (touchX.current === null) return;
-            const delta = e.changedTouches[0].clientX - touchX.current;
+            const endX = e.changedTouches[0]?.clientX;
+            if (endX === undefined) return;
+            const delta = endX - touchX.current;
             if (Math.abs(delta) > 40) step(delta < 0 ? 1 : -1);
             touchX.current = null;
             window.setTimeout(() => setPaused(false), 1200);
