@@ -186,7 +186,7 @@ export function CheckoutDialog({
       return;
     }
 
-    const url = `https://api.whatsapp.com/send?phone=${WHATSAPP_PHONE}&text=${encodeURIComponent(buildMessage())}`;
+    const url = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(buildMessage())}`;
 
     try {
       const history = JSON.parse(localStorage.getItem(HISTORY_KEY) ?? "[]");
@@ -231,7 +231,7 @@ export function CheckoutDialog({
     toast.success(t("whatsapp_send_reminder"));
     onOpenChange(false);
     setOpen(false);
-    window.location.assign(url);
+    window.open(url, "_blank", "noopener,noreferrer");
   };
 
   const sectionTitle = (label: string) => (
