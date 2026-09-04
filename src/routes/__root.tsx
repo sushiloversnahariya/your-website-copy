@@ -132,6 +132,41 @@ function RootShell({ children }: { children: ReactNode }) {
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
+  // A deploy can replace hashed chunk files while an old tab still references
+  // them, which surfaces as "Failed to fetch dynamically imported module" and a
+  // blank screen. Reload once (guarded against loops) to pick up the new build.
+  useEffect(() => {
+    const recover = () => {
+      const key = "chunk-reload-at";
+      const last = Number(sessionStorage.getItem(key) ?? 0);
+      if (Date.now() - last < 10_000) return;
+      sessionStorage.setItem(key, String(Date.now()));
+      window.location.reload();
+    };
+    const onPreloadError = () => recover();
+    const onError = (event: ErrorEvent) => {
+      if (/dynamically imported module|Importing a module script failed/i.test(event.message)) {
+        recover();
+      }
+    };
+    const onRejection = (event: PromiseRejectionEvent) => {
+      const message = String((event.reason as { message?: string })?.message ?? event.reason ?? "");
+      if (/dynamically imported module|Importing a module script failed/i.test(message)) {
+        recover();
+      }
+    };
+    window.addEventListener("vite:preloadError", onPreloadError);
+    window.addEventListener("error", onError);
+    window.addEventListener("unhandledrejection", onRejection);
+    return () => {
+      window.removeEventListener("vite:preloadError", onPreloadError);
+      window.removeEventListener("error", onError);
+      window.removeEventListener("unhandledrejection", onRejection);
+    };
+  }, []);
+
+
+
   return (
     <QueryClientProvider client={queryClient}>
       <I18nProvider>
